@@ -1,5 +1,5 @@
 clear;
-dyn = classPyDynamixel('COM14', 1e6);
+dyn = classPyDynamixel('COM13', 1e6);
 DXL_IDs = [7;8;9];
 dyn.setRecommendedValue(DXL_IDs);
 
