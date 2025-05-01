@@ -45,7 +45,7 @@ function testReadWritePosition(mpsse, ch,  cs,  dyn, DXL_IDs)
     dw = 1;
     % deg1 = 40;
     % deg2 = 90;
-    deg3 = [-50;90];   %目標
+    deg3 = [-50;90];   %目標位置
     wid = 100;
     % FIN = [];
     ARM = [];
