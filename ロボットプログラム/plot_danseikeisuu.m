@@ -1,0 +1,60 @@
+clear;
+
+load('ddd.mat');
+x=((ddd(:,3)-ddd(1,3))*0.088);
+y=ddd(:,9);
+
+P=polyfit(x,y,3)
+ppp=[]
+ppp=[ppp,P]
+save("ppp","ppp")
+
+figure(1);clf;hold('on');
+plot((ddd(:,3)-ddd(1,3))*0.088, ddd(:,9),'LineStyle','-','Color',"b","LineWidth",2)
+% ddd(:,3)はモータの回転角度、ddd(:,9)はトルク
+% xlim([-pi/6 pi/6]);
+% xticks([-pi/6 -pi/12 0 pi/12 pi/6]);
+% xticklabels({'-\pi/6','-\pi/12','0','\pi/12','\pi/6'});
+hold on
+x2=((ddd(:,3)-ddd(1,3))*0.088);
+y2=polyval(P,x2);
+fontsize(14,"points")   %fontsize of number at axis
+
+plot(x2,y2,'-','color',"r","LineWidth",2)
+
+xlabel('deg','FontSize',14)
+ylabel('Torque[Nm]','FontSize',14)
+% legend('Measured','y=0.044x','fontsize',14,'location','northwest')
+
+hold off
+% x=((ddd(:,3)-ddd(1:3))*0.088);
+% y=ddd(:,9);
+% P=polyfit(x,y,1)
+
+figure(2);clf;hold('on');
+plot((ddd(:,3)-ddd(1,3))*0.088, ddd(:,9),'LineStyle','-','Color',"b","LineWidth",2)
+xlabel('deg','FontSize',14)
+ylabel('Torque[Nm]','FontSize',14)
+
+% x2=((ddd(:,3)-ddd(1,3))*0.088);
+% y2=polyval(P,x2);
+fontsize(14,"points")
+
+figure(3);clf;hold('on');
+plot(x2,y2,'-','color',"r","LineWidth",2)
+xlabel('deg','FontSize',14)
+ylabel('Torque[Nm]','FontSize',14)
+
+fontsize(14,"points")
+
+% figure(4);clf;hold('on');
+% x3=0:0.25:10
+% y3=0:1:40
+
+% fontsize(14,"points")
+
+% plot(x3,y3,'-','color',"r","LineWidth",2)
+
+% xlabel('time','FontSize',14)
+% ylabel('deg','FontSize',14)
+
